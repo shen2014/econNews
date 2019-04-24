@@ -1,0 +1,11 @@
+
+# exclude the followings from git
+
+**.pdf
+
+**.pyc
+
+
+
+**/.spyproject/*
+
