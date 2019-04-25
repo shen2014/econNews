@@ -4,13 +4,13 @@ import urllib.request
 
 from bs4 import BeautifulSoup
 
-import shutil, os
+import shutil
 
        
 
-source_file_url_fomc_meetings = 'source_fomccalendars.htm'
+source_file = 'source_2014_2019.htm'
 
-with open(source_file_url_fomc_meetings) as fp:
+with open(source_file) as fp:
     soup = BeautifulSoup(fp, 'html.parser')
 
     #print(soup.prettify())
@@ -28,6 +28,7 @@ with open(source_file_url_fomc_meetings) as fp:
             monetary_policy_ref.append(ref)
     
     monetary_policy_url = []
+    
     for ref in monetary_policy_ref:
         
         url_link = "https://www.federalreserve.gov" + str(ref.text)
