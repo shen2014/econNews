@@ -1,3 +1,5 @@
+
+
 # -*- coding: utf-8 -*-
 
 import urllib.request
@@ -6,9 +8,9 @@ from bs4 import BeautifulSoup
 
 import shutil
 
-years = [2010, 2011, 2012, 2013]
+years = list(range(1990, 2000))
 
-save_dir = './savedownload2010_2013/'
+save_dir = './savedownload1990_1999/'
 
 
 for year in years:
@@ -35,11 +37,18 @@ for year in years:
   
         for ref in hrefs:
         
+            if year <= 1992:
         
-            if  ref.attrs['href'][0:33] == '/monetarypolicy/files/fomcminutes'  and ref.attrs['href'][-4:] == '.pdf':
-       
-                minutes_ref.append(ref)
+                if  ref.attrs['href'][0:29] == '/monetarypolicy/files/fomcmoa'  and ref.attrs['href'][-4:] == '.pdf':
+               
+                    minutes_ref.append(ref)
     
+            else:
+                
+                if  ref.text == 'Minutes':
+           
+                    minutes_ref.append(ref)
+                    
         minutes_url = []
         
         for ref in minutes_ref:
@@ -52,7 +61,7 @@ for year in years:
     
             file_name   =  url.split('/')[-1]
     
-            file_name   =  save_dir + file_name 
+            file_name   =  save_dir + 'minutes_' + file_name 
     
             with urllib.request.urlopen(url) as response, open(file_name, 'wb') as f:
 
