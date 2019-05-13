@@ -2,8 +2,8 @@
 library(pdftools)
 
 #input_data_dir <- "../download/savedownload2014_2019/savedownload2014_2019"
-input_data_dir  <- "~/ml/econnews/download/savedownload2014_2019/savedownload2014_2019/"
-output_data_dir <- "./2014_2019/"
+input_data_dir  <- "~/ml/econnews/download/savedownload2010_2013/savedownload2010_2013/"
+output_data_dir <- "./2010_2013/"
 
 
 file_name_list <- list.files(path = input_data_dir, pattern = "^fomcminutes.*pdf$")

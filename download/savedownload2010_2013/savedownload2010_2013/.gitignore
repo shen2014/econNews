@@ -1,0 +1,12 @@
+
+# exclude the followings from git
+
+
+
+**.pyc
+
+
+
+
+
+
